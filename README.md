@@ -44,3 +44,7 @@ _Please do this before workshop. Ping me on Slack if you have any problems with 
 * [ClojureScript Tutorial](https://www.niwi.nz/cljs-workshop/)
 * [ClojureScript Koans](http://clojurescriptkoans.com/)
 * [Transforming Data with ClojureScript](http://langintro.com/cljsbook/)
+
+---
+
+https://github.com/roman01la/amsterdamjs-clojurescript-workshop

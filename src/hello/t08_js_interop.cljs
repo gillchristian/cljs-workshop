@@ -15,8 +15,12 @@
 ;; ### Calling methods
 ;;
 
-(.setItem js/localStorage "key" "value")
+(.setItem js/localStorage "key" "value") ;; idiomatic
+
+(js/localStorage.setItem "key" "value")
 ;; localStorage.setItem("key", "value")
+
+(.getItem js/localStorage "key") ;; idiomatic
 
 (js/localStorage.getItem "key")
 ;; localStorage.getItem("key")
@@ -29,6 +33,11 @@
 
 #js [1 2 3]
 
+(def arr #js [1 2 3])
+
+(nth arr 1) ;; 2
+
+;; REPL is broken but it actually work
 
 ;; ### get/set JS object properties
 ;;

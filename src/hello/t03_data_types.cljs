@@ -47,7 +47,6 @@ string"
 
 (:user-name {:user-name "rich hickey"})
 
-
 ;; Symbol
 ;;
 
@@ -71,3 +70,5 @@ string"
 (string? user-name)
 
 (symbol? 'user-name)
+
+(symbol? user-name)

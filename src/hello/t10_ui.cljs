@@ -10,6 +10,7 @@
  {:on-click #(js/alert "Click!")} ;; attributes/props (optional)
  "press"]                         ;; children
 
+
 ;; <button onClick={() => alert("Click!")}>press</button>
 
 ;; In Hiccup a tag can also define HTML class and id attributes

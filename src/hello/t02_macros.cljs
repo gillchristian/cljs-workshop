@@ -13,7 +13,9 @@
 ;; Let's see how it transforms the code step by step.
 ;; This is how you write it down:
 
-(->> (/ 9 3) (* 10 2) (+ 3))
+(->> (/ 9 3)
+     (* 10 2)
+     (+ 3))
 
 ;; The first expression goes into the last position in arguments list of the second expression
 (->> (* 10 2 (/ 9 3)) (+ 3))
@@ -27,6 +29,8 @@
 ;; We can verify expansion
 (macroexpand '(->> (/ 9 3) (* 10 2) (+ 3)))
 
+(macroexpand-1 '(->> (/ 9 3) (* 10 2) (+ 3))) ;; expand only the first lvl macro 
+
 ;; Threading macros become useful when building pipelines of transformations.
 ;; For example ->> macro suits for building collection transformations pipeline.
 (->> (range 10)
@@ -34,7 +38,21 @@
      (map inc)
      (reduce * 1))
 
+(macroexpand-1 '(->> (range 10)
+                     (filter odd?)
+                     (map inc)
+                     (reduce * 1)))
+
+;; (reduce * 1 (map inc (filter odd? (range 10))))
+
 ;; or -> (thread-first) to pipe a value through multiple transformations
 (-> {:fname "John" :age 31}
     (assoc :lname "Doe")
     (update :age inc))
+
+(macroexpand-1 '(-> {:fname "John" :age 31}
+                    (assoc :lname "Doe")
+                    (update :age inc)))
+
+;; (update (assoc {:fname "John", :age 31} :lname "Doe") :age inc)
+

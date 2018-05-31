@@ -19,6 +19,14 @@
 (range 5 10)
 (repeat 10 1)
 
+(->> [1 2 3]
+     (filter odd?)
+     (vec))
+
+(->> [1 2 3]
+     (filter odd?)
+     (into []))
+
 
 ;; ### Transforming collection types
 ;;
@@ -37,3 +45,9 @@
 ;; `filter` out `odd` values
 ;; and `reduce` collection to a `product` of all its values.
 ;; Hint: use threa-last macro.
+
+(->> (range 1 101)
+     (filter even?)
+     (reduce * 1))
+
+

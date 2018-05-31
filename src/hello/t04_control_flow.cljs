@@ -19,12 +19,14 @@
 
 (> 3 2 1)
 
+(> 3 2 1 3)
+
 ;; ...
 
 
 ;; ## Conditionals
 ;;
-
+(if 0 "true" "false")
 
 (if (zero? 1)
   "zero!"

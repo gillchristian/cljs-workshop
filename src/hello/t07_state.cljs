@@ -34,6 +34,8 @@
 ;; Updating state of the atom is done in a functional manner
 (swap! user #(update % :age inc))
 
+@user
+
 ;; Or setting a new value directly
 (reset! user {:first-name "John"
               :last-name "Doe"
@@ -48,7 +50,15 @@
 
 ;; Because values are immutable, we can observe different states of an identity over time.
 
+; (add-watch user :logger (fn [key ref old-state new-state]
+;                           (js/alert (str new-state))
+
 (add-watch user :logger (fn [key ref old-state new-state]
-                          (js/alert (str new-state))))
+                          (js/console.log (str new-state))))
 
 ;; Try to update `user` again and see what happens :)
+
+(swap! user #(update % :age inc))
+
+(swap! user #(update % :age inc))
+

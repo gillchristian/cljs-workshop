@@ -14,8 +14,14 @@
 ;; List is a classic singly linked list data structure. Lisp code itself is made out of lists.
 ;; Lists support fast append to the end and retrieval of the head (first) element.
 '(1 2 3)
+(list 1 2 3)
+(cons 1 (cons 2 (cons 3 nil)))
+(cons 1 '(2 3))
+
 (list? '(1 2 3))
 
+;; (cdr '(1 2 3)) doesnt' work =/
+;; (car '(1 2 3)) doesnt' work =/
 
 ;; ## Vector
 ;;
@@ -23,7 +29,11 @@
 ;; Vector is an indexed collection (like JavaScript's Array).
 ;; Vectors support fast lookup by index and fast append to the end of collection.
 [1 2 3]
+(vector 1 2 3)
 (vector? [1 2 3])
+
+(vector '(1 2 3))
+(vec '(1 2 3))
 
 ;; ## Map
 ;;
@@ -45,4 +55,15 @@
 ;; Sets are collections of unique values.
 
 #{1 2 3 4}
+
+;; #{ '(1) '(1)} throws
+
+;; (set '(1) '(1)) ;; yay !!! (nay :( compile time error)
+
+;; #{1 2 2} throws
+
+(set '(1 1 2 3)) ;; yay !!!
+
+(filter #{3 4 5} (range 10)) ;; (2 5 8)
+
 (set? #{1 2 3})
